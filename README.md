@@ -14,7 +14,7 @@
 
 # Welcome to CommunityFit - a stream project 
 
-![smiley](Logo-Black.png =200x100)
+![](Logo-Black.png)
 
 ## My Background and project inspiration
 
