@@ -89,6 +89,7 @@ Open up the user secrets (right click on the `CommunityFitChallenge.Web project,
 #### VSCode
 
 The user secrets can be found at the following locations:
+
   |OS     |Path|
   |-------|:--------------------------------------------------------------|
   |Windows| %APPDATA%\Microsoft\UserSecrets\<user_secrets_id>\secrets.json|
