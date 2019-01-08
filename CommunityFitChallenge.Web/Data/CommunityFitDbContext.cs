@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CommunityFitChallenge.Web.Data
 {
-    public class CommunityFitDbContext : IdentityDbContext
+    public class CommunityFitDbContext : IdentityDbContext<CommunityFitUser>
     {
         public CommunityFitDbContext(DbContextOptions<CommunityFitDbContext> options) : base(options)
         {

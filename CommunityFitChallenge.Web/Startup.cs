@@ -44,9 +44,10 @@ namespace CommunityFitChallenge.Web
                 options.UseMySql(Configuration.GetConnectionString("CommunityFitChallenge-MySql"));
             });
 
-            services.AddDefaultIdentity<IdentityUser>()
+            services.AddIdentity<CommunityFitUser, IdentityRole>()
+                .AddDefaultTokenProviders()
                 .AddDefaultUI(UIFramework.Bootstrap4)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+                .AddEntityFrameworkStores<CommunityFitDbContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }

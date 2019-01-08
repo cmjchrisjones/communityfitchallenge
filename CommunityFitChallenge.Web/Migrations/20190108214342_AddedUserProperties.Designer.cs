@@ -3,14 +3,16 @@ using System;
 using CommunityFitChallenge.Web.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CommunityFitChallenge.Web.Migrations
 {
     [DbContext(typeof(CommunityFitDbContext))]
-    partial class CommunityFitDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190108214342_AddedUserProperties")]
+    partial class AddedUserProperties
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -66,8 +68,6 @@ namespace CommunityFitChallenge.Web.Migrations
 
                     b.Property<string>("UserName")
                         .HasMaxLength(256);
-
-                    b.Property<bool>("UserProfileIsCompleted");
 
                     b.HasKey("Id");
 
