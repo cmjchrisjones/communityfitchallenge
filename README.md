@@ -7,6 +7,12 @@
     - [Pre-requisites](#pre-requisites)
       - [Setting up a docker MySql container](#setting-up-a-docker-mysql-container)
     - [Setting up the connection string](#setting-up-the-connection-string)
+      - [Full Visual Studio](#full-visual-studio)
+      - [VSCode](#vscode)
+      - [CLI](#cli)
+    - [Building & running the project](#building--running-the-project)
+      - [Visual Studio](#visual-studio)
+      - [Command Line](#command-line)
     - [Goals, Tasks & Ideas](#goals-tasks--ideas)
       - [User Registration & Login](#user-registration--login)
       - [Communities](#communities)
@@ -52,7 +58,8 @@ I don't claim to be the best coder in the world, I am one of many self taught bu
 
 - MYSQL (either via a Docker container  or natively installed)
 - Visual Studio 2017 (or 2019) or VSCode
-- 
+- .NET Core 2.2 SDK/Runtime(run `dotnet --info` or `dotnet --list-runtimes` to check your current installed versions)
+
 
 #### Setting up a docker MySql container
  
@@ -60,9 +67,14 @@ I don't claim to be the best coder in the world, I am one of many self taught bu
  
    `docker run --name=communityfitdb -p 3308:3306 -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=communityfitdb mysql --default-authentication-plugin=mysql_native_password`
 
-- .NET Core 2.2 SDK
 
 ### Setting up the connection string
+
+I currently have the connection string for the database, for local development stored in User Secrets. The user secrets key for this project in `/aspnet-CommunityFitChallenge.Web-6E7BF479-8086-443D-A7BF-F9DED3D2D859`. More information about user secrets can be found [here](https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-2.2&tabs=linux).
+
+ See below on how to add 
+
+#### Full Visual Studio
 
 Open up the user secrets (right click on the `CommunityFitChallenge.Web project, then Manage User Secrets), and then insert the following:
 
@@ -73,6 +85,39 @@ Open up the user secrets (right click on the `CommunityFitChallenge.Web project,
   }
 }
 ```
+
+#### VSCode
+
+The user secrets can be found at the following locations:
+  |OS     |Path|
+  |-------|:--------------------------------------------------------------|
+  |Windows| %APPDATA%\Microsoft\UserSecrets\<user_secrets_id>\secrets.json|
+  |MAC OSX| ~/.microsoft/usersecrets/<user_secrets_id>/secrets.json m     |
+  |Linux  | ~/.microsoft/usersecrets/<user_secrets_id>/secrets.json       |
+
+The user secrets ID for this project is 
+
+#### CLI
+
+In a terminal, navigate to the folder where CommunityFit.Web csproj is located, EG(/communityfitchallenge/CommunityFitChallenge.Web), then add 
+`dotnet user-secrets set "ConnectionStrings { CommunityFitChallenge-MySql": "server=localhost;port=3310;uid=root;database=communityfitdb;password=password"`
+
+### Building & running the project
+
+Project can either be built via the CLI or via Visual Studio. 
+
+#### Visual Studio 
+
+`Ctrl + F5` Should be enough to run up an IIS instance!
+
+#### Command Line
+
+If this is the first time you're running, run 
+`dotnet restore`
+`dotnet build`
+to ensure dependencies are restored.
+
+If it isn't, then `dotnet run` should be enough to get the app running
 
 ### Goals, Tasks & Ideas
 
