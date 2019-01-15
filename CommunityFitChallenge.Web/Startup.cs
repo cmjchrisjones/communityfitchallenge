@@ -49,6 +49,12 @@ namespace CommunityFitChallenge.Web
                 .AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<CommunityFitDbContext>();
 
+            services.ConfigureApplicationCookie(opts =>
+            {
+                opts.LogoutPath = "/Identity/Account/Logout";
+                opts.LoginPath = "/Idenity/Account/Login";
+            });
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
