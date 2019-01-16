@@ -96,7 +96,7 @@ The user secrets can be found at the following locations:
   |MAC OSX| ~/.microsoft/usersecrets/<user_secrets_id>/secrets.json m     |
   |Linux  | ~/.microsoft/usersecrets/<user_secrets_id>/secrets.json       |
 
-The user secrets ID for this project is 
+The user secrets ID for this project is `aspnet-CommunityFitChallenge.Web-6E7BF479-8086-443D-A7BF-F9DED3D2D859`
 
 #### CLI
 
